@@ -1,0 +1,12 @@
+# Editor
+.vscode/
+.idea/
+
+# Operativsystem
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Övrigt
+*.log
+*.tmp
