@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Edwin Lunds portfolio – under konstruktion.">
+    <title>Edwin Lund - under konstruktion</title>
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <style>
+        /* ---------- Typsnitt: JetBrains Mono (ligger i assets/fonts) ---------- */
+        @font-face {
+            font-family: "JetBrains Mono";
+            src: url("assets/fonts/JetBrainsMono-400.woff2") format("woff2");
+            font-weight: 400;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "JetBrains Mono";
+            src: url("assets/fonts/JetBrainsMono-700.woff2") format("woff2");
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        :root {
+            --bg: #13111c;
+            --text: #f4f4f5;
+            --muted: #a1a1aa;
+            --accent: #c4b5fd;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            text-align: center;
+            font-family: "JetBrains Mono", "Consolas", monospace;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+        }
+
+        /* ---------- Varningsskylten (ritad med *) ---------- */
+        .symbol {
+            display: inline-block;
+            margin: 0 0 1.5rem;
+            text-align: left;
+            font-family: "Consolas", "Courier New", monospace;
+            font-size: clamp(0.55rem, 2.8vw, 1.15rem);
+            font-weight: 700;
+            line-height: 0.65; /* Tätt mellan raderna så att skylten blir fylld */
+        }
+
+        /* ---------- Sneda ränder som glider genom tecknen (används på skylten) ---------- */
+        .randig {
+            /* De två färgerna och storleken på ränderna – ändra här */
+            --farg-1: #7c3aed;
+            --farg-2: #c4b5fd;
+            --rand: 64px;
+
+            /* En ruta med två sneda ränder som upprepas över hela ytan, som kakel */
+            background-image: linear-gradient(45deg,
+                var(--farg-1) 25%,
+                var(--farg-2) 25% 50%,
+                var(--farg-1) 50% 75%,
+                var(--farg-2) 75%);
+            background-size: var(--rand) var(--rand);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: glid 1.2s linear infinite;
+        }
+
+        /* Flyttar mönstret exakt en ruta, så att man inte ser när animationen börjar om */
+        @keyframes glid {
+            from { background-position: 0 0; }
+            to   { background-position: var(--rand) 0; }
+        }
+
+        h1 {
+            margin: 0 0 0.5rem;
+            font-size: clamp(1.3rem, 5vw, 2.4rem);
+            line-height: 1.2;
+        }
+
+        p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        main {
+            margin: auto 0;
+        }
+
+        footer {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        /* Ikonerna (mail + GitHub), fast i övre högra hörnet */
+        .ikoner {
+            position: fixed;
+            top: 1.25rem;
+            right: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .ikon {
+            display: inline-flex;
+            color: var(--muted);
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .ikon svg {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .ikon:hover,
+        .ikon:focus-visible {
+            color: var(--accent);
+            transform: scale(1.15);
+        }
+    </style>
+</head>
+<body>
+    <nav class="ikoner">
+        <a href="mailto:grusgrus829@gmail.com" class="ikon" aria-label="Maila mig: grusgrus829@gmail.com" title="grusgrus829@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M22 7 12 13 2 7"/>
+            </svg>
+        </a>
+        <a href="https://github.com/RiktigtSnyggaGreger" target="_blank" rel="noopener" class="ikon" aria-label="Min GitHub" title="Min GitHub">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+        </a>
+    </nav>
+
+    <main>
+        <pre class="symbol randig" aria-hidden="true">
+                
+               ***
+               ***
+              *****
+             *******
+             *******
+            *********
+           ***********
+           ***     ***
+          ****     ****
+         *****     *****
+         ******   ******
+        *******   *******
+       ********   ********
+      *********   *********
+      *********   *********
+     ***********************
+    *************************
+    ***********   ***********
+   ************   ************
+  *************   *************
+  *****************************
+ *******************************
+*********************************</pre>
+        <h1>Sidan är under konstruktion</h1>
+        <p>Min portfolio kommer snart. Titta gärna tillbaka senare!</p>
+    </main>
+
+    <footer>
+        © 2026 Edwin Lund
+    </footer>
+
+    <script>
+        // Hälsning till den som öppnar utvecklarverktygen (F12 → Console)
+        console.log("Hej! Nyfiken på koden? Kolla in min GitHub: https://github.com/RiktigtSnyggaGreger");
+    </script>
+</body>
+</html>

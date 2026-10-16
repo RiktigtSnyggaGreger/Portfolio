@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <!-- Sneda ränder i samma lila som skylten på sidan -->
+    <defs>
+        <pattern id="ranger" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <rect width="8" height="8" fill="#7c3aed"/>
+            <rect width="4" height="8" fill="#c4b5fd"/>
+        </pattern>
+    </defs>
+
+    <!-- Varningstriangel med utropstecken som hål (fill-rule="evenodd") -->
+    <path fill="url(#ranger)" fill-rule="evenodd" d="
+        M16 2 L31 29 L1 29 Z
+        M13.6 11 L18.4 11 L17.4 20 L14.6 20 Z
+        M14 22.5 L18 22.5 L18 26 L14 26 Z"/>
+</svg>
